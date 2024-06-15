@@ -1,0 +1,153 @@
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{naturalnames}{hyperref}
+
+\documentclass[14pt,aspectratio=169]{beamer}
+
+\mode<presentation> {
+
+% The Beamer class comes with a number of default slide themes
+% which change the colors and layouts of slides. Below this is a list
+% of all the themes, uncomment each in turn to see what they look like.
+
+%\usetheme{default}
+%\usetheme{AnnArbor}
+%\usetheme{Antibes}
+%\usetheme{Bergen}
+%\usetheme{Berkeley}
+%\usetheme{Berlin}
+%\usetheme{Boadilla}
+%\usetheme{CambridgeUS}
+%\usetheme{Copenhagen}
+%\usetheme{Darmstadt}
+%\usetheme{Dresden}
+%\usetheme{Frankfurt}
+%\usetheme{Goettingen}
+%\usetheme{Hannover}
+%\usetheme{Ilmenau}
+%\usetheme{JuanLesPins}
+%\usetheme{Luebeck}
+\usetheme{Madrid}
+%\usetheme{Malmoe}
+%\usetheme{Marburg}
+%\usetheme{Montpellier}
+%\usetheme{PaloAlto}
+%\usetheme{Pittsburgh}
+%\usetheme{Rochester}
+%\usetheme{Singapore}
+%\usetheme{Szeged}
+%\usetheme{Warsaw}
+
+% As well as themes, the Beamer class has a number of color themes
+% for any slide theme. Uncomment each of these in turn to see how it
+% changes the colors of your current slide theme.
+
+%\usecolortheme{albatross}
+%\usecolortheme{beaver}
+%\usecolortheme{beetle}
+%\usecolortheme{crane}
+%\usecolortheme{dolphin}
+%\usecolortheme{dove}
+%\usecolortheme{fly}
+%\usecolortheme{lily}
+%\usecolortheme{orchid}
+%\usecolortheme{rose}
+%\usecolortheme{seagull}
+\usecolortheme{seahorse}
+%\usecolortheme{whale}
+%\usecolortheme{wolverine}
+
+
+%\setbeamertemplate{footline} % To remove the footer line in all slides uncomment this line
+%\setbeamertemplate{footline}[page number] % To replace the footer line in all slides with a simple slide count uncomment this line
+
+\setbeamertemplate{navigation symbols}{} % To remove the navigation symbols from the bottom of all slides uncomment this line
+\setbeamertemplate{frametitle continuation}[from second][\insertcontinuationtext]
+}
+
+\usepackage{graphicx} % Allows including images
+\usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
+\usepackage[T1]{fontenc}
+\usepackage{fix-cm}
+\usepackage{microtype}
+%\usepackage{lmodern}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{listings}
+\usepackage{tikz}
+\usetikzlibrary{positioning,backgrounds}
+\usetikzlibrary{decorations.pathmorphing}
+\usepackage{colortbl}
+% \usepackage[light]{iwona}
+%\usepackage[light,condensed]{kurier}
+%\usepackage[familydefault,light]{Chivo}
+
+% \usepackage{fontspec}
+% \setsansfont{QTEraType}
+
+% \usepackage[sfdefault,light]{FiraSans}
+\usepackage[sfdefault]{atkinson}
+%\usepackage{libertine}
+\usepackage[scaled=.9]{PTMono}
+\usepackage{marvosym}
+%\usepackage{cfr-lm}
+%\usepackage{pifont}
+%\usepackage{keystroke}
+\usepackage{etoolbox}
+
+%
+% Listados de código
+%
+\lstset{%
+basicstyle=\ttfamily\footnotesize,
+commentstyle=\color{gray}\itshape\ttfamily,
+keywordstyle=\color{blue!80}\bfseries\ttfamily,
+stringstyle = \color{gray},
+showstringspaces=false,
+frame=tblr, % single, tb, ltrb % boxed listings, en mayusculas = doble linea
+framerule=0pt,
+tabsize=2, % tabulador = 2 espacios
+captionpos=b,
+breaklines=true,
+breakatwhitespace=true,
+backgroundcolor=\color{yellow!10},
+%backgroundcolor=\color{white},
+%numbers=left, numberstyle=\Tiny, stepnumber=2, numbersep=10pt,
+xleftmargin=0.02\textwidth,
+xrightmargin=0.02\textwidth,
+language=Python, % Por defecto
+literate={«}{{\guillemotleft}}1
+           {»}{{\guillemotright}}1
+{á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
+  {Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1
+  {à}{{\`a}}1 {è}{{\`e}}1 {ì}{{\`i}}1 {ò}{{\`o}}1 {ù}{{\`u}}1
+  {À}{{\`A}}1 {È}{{\'E}}1 {Ì}{{\`I}}1 {Ò}{{\`O}}1 {Ù}{{\`U}}1
+  {ä}{{\"a}}1 {ë}{{\"e}}1 {ï}{{\"i}}1 {ö}{{\"o}}1 {ü}{{\"u}}1
+  {Ä}{{\"A}}1 {Ë}{{\"E}}1 {Ï}{{\"I}}1 {Ö}{{\"O}}1 {Ü}{{\"U}}1
+  {â}{{\^a}}1 {ê}{{\^e}}1 {î}{{\^i}}1 {ô}{{\^o}}1 {û}{{\^u}}1
+  {Â}{{\^A}}1 {Ê}{{\^E}}1 {Î}{{\^I}}1 {Ô}{{\^O}}1 {Û}{{\^U}}1
+  {œ}{{\oe}}1 {Œ}{{\OE}}1 {æ}{{\ae}}1 {Æ}{{\AE}}1 {ß}{{\ss}}1
+  {ű}{{\H{u}}}1 {Ű}{{\H{U}}}1 {ő}{{\H{o}}}1 {Ő}{{\H{O}}}1
+  {ç}{{\c c}}1 {Ç}{{\c C}}1 {ø}{{\o}}1 {å}{{\r a}}1 {Å}{{\r A}}1
+  {€}{{\EUR}}1 {£}{{\pounds}}1
+           {ñ}{{\~n}}1
+           {Ñ}{{\~N}}1
+           {¿}{{?`}}1
+}
+
+
+%% Macros comunes
+\newcommand{\hide}[1]{}
+\newcommand{\ra}{$\rightarrow${}~{}}
+
+
+% \end{document}
+
+%%% Local variables:
+%%% mode: LaTeX
+%%% TeX-master: t
+%%% ispell-local-dictionary: "spanish"
+%%% fill-column: 75
+%%% TeX-parse-self: t
+%%% TeX-auto-save: t
+%%% End:
+%%% vim: expandtab shiftwidth=2 tabstop=2
