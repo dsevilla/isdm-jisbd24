@@ -17,5 +17,13 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
-    - name: Install dependencies
-      run: make
+    - uses: xu-cheng/latex-action@v3
+      with:
+        root_file: isdm24.tex
+        docker_image: ghcr.io/xu-cheng/texlive-full:20240605
+
+    - name: Upload PDF file
+      uses: actions/upload-artifact@v4
+      with:
+        name: PDF
+        path: isdm24.pdf
