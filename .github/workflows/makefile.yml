@@ -19,7 +19,8 @@ jobs:
 
     - uses: xu-cheng/latex-action@v3
       with:
-        root_file: pr/isdm24.tex
+        working_directory: pr
+        root_file: isdm24.tex
         docker_image: ghcr.io/xu-cheng/texlive-full:20240605
 
     - name: Upload PDF file
