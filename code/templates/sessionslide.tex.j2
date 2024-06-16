@@ -1,0 +1,10 @@
+\begin{frame}
+  \frametitle{Sesión {{ session.name }}}
+Sesión {{ session.name }} ({{ startdate }}):
+\begin{itemize}
+{% for articleid in session_map[session.name] %}
+\item \small{ {{- df.loc[articleid].Authors -}} }, %
+      {\bfseries\itshape {{ df.loc[articleid].Title -}} }
+{% endfor %}
+\end{itemize}
+\end{frame}
