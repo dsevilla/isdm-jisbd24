@@ -4,7 +4,7 @@
 {% for articleid in papers %}
 \item \small{ {{- df.loc[articleid].Authors -}} }, %
       {\bfseries\itshape {{ df.loc[articleid].Title -}} } %
-      \small{({{ df.loc[articleid].Tipo }}, {{ get_duration(df.loc[articleid].Tipo) }})}
+      \small{({{ df.loc[articleid].Tipo }},~{{ get_duration(df.loc[articleid].Tipo) }})}
 {% endfor %}
 \end{itemize}
 \end{frame}
