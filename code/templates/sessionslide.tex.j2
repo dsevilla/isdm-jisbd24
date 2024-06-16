@@ -1,5 +1,5 @@
 \begin{frame}
-  \frametitle{Sesión {{ session.name }} ({{ startdate_str(session.start) }})}
+  \frametitle{ {{- session.name }} ({{ startdate_str(session.start) }})}
 \begin{itemize}
 {% for articleid in papers %}
 \item \small{ {{- df.loc[articleid].Authors -}} }, %
