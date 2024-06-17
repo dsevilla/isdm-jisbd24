@@ -103,6 +103,22 @@ for index, row in df.iterrows():
 \end{frame}
 
 
+\begin{frame}[fragile]
+  \frametitle{Model-to-Text!!}
+Renderizado:
+\begin{lstlisting}
+template = Template(open('templates/sessionslide-model.tex.j2').read())
+
+for session in track.sessions:
+    print(template.render(session=session))
+\end{lstlisting}
+
+
+
+  Plantilla {\tt sessionslide-model.tex.j2}:
+\lstinputlisting[language=TeX]{../code/templates/sessionslide-model.tex.j2}
+\end{frame}
+
 \input sessionindex
 
 
