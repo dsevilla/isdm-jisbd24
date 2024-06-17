@@ -1,10 +1,12 @@
 \begin{frame}
-  \frametitle{ {{- session.name }} ({{ startdate_str(session.start) }})}
+  \frametitle{ {{- session.name }} ({{ date_str(session.start) }})}
 \begin{itemize}
+{% set ns=namespace(t=session.paperstart) %}
 {% for articleid in papers %}
-\item \small{ {{- df.loc[articleid].Authors -}} }, %
+\item {({{ time_str(ns.t) }}) {{ df.loc[articleid].Authors -}} }, %
       {\bfseries\itshape {{ df.loc[articleid].Title -}} } %
-      \small{({{ df.loc[articleid].Tipo }},~{{ get_duration(df.loc[articleid].Tipo) }})}
+      {({{ df.loc[articleid].Tipo }},~{{ get_duration(df.loc[articleid].Tipo) }})}
+      {% set ns.t=ns.t+timedelta(minutes=get_duration_time(df.loc[articleid].Tipo)) %}
 {% endfor %}
 \end{itemize}
 \end{frame}

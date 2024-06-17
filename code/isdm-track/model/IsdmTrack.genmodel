@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
+    modelDirectory="/isdm-track/src-gen" creationIcons="false" editDirectory="/isdm-track.edit/src-gen"
+    editorDirectory="/isdm-track.editor/src-gen" modelPluginID="isdm-track" modelName="IsdmTrack"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" codeFormatting="true"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="5.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>IsdmTrack.ecore</foreignModel>
+  <testsDirectory xsi:nil="true"/>
+  <genPackages prefix="IsdmTrack" basePackage="isdm-track" disposableProviderFactory="true"
+      ecorePackage="IsdmTrack.ecore#/">
+    <genClasses ecoreClass="IsdmTrack.ecore#//NamedElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute IsdmTrack.ecore#//NamedElement/name"/>
+    </genClasses>
+    <genClasses ecoreClass="IsdmTrack.ecore#//Track">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference IsdmTrack.ecore#//Track/sessions"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference IsdmTrack.ecore#//Track/authors"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference IsdmTrack.ecore#//Track/papers"/>
+    </genClasses>
+    <genClasses ecoreClass="IsdmTrack.ecore#//Session">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference IsdmTrack.ecore#//Session/papers"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute IsdmTrack.ecore#//Session/start"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute IsdmTrack.ecore#//Session/end"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute IsdmTrack.ecore#//Session/paperstart"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute IsdmTrack.ecore#//Session/location"/>
+    </genClasses>
+    <genClasses ecoreClass="IsdmTrack.ecore#//Author">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference IsdmTrack.ecore#//Author/paper"/>
+    </genClasses>
+    <genClasses ecoreClass="IsdmTrack.ecore#//Paper">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference IsdmTrack.ecore#//Paper/session"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference IsdmTrack.ecore#//Paper/author"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute IsdmTrack.ecore#//Paper/title"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute IsdmTrack.ecore#//Paper/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute IsdmTrack.ecore#//Paper/abstract"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute IsdmTrack.ecore#//Paper/keywords"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
