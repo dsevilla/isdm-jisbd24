@@ -32,15 +32,76 @@ Universidad de Extremadura &  Universidad de Murcia \\
 
 \section{Introducción y bienvenida al taller}
 
-\begin{frame}[fragile]
+\begin{frame}
 \frametitle{Bienvenida}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Cargando los datos de easychair}
 
 \begin{lstlisting}
 import pandas as pd
 df = pd.read_excel('ISDM2024.xlsx',index_col=0,header=0)
+df['Authors'] = df['Authors'].str.replace(' and ', ' y ', regex=False)
 \end{lstlisting}
 
 \end{frame}
+
+\begin{frame}
+  \frametitle{Artículos}
+  \includegraphics[width=\textwidth]{img/resumen}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Tipos de artículos}
+  \centering\includegraphics[height=.9\textheight]{img/histograma-tipos}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Keywords}
+\begin{lstlisting}
+set(df['Keywords'].str.split(',').explode().str.strip())
+>>> {'UML', 'Software models', 'Natural Language Generation', 'Ant Colony Optimization', 'Puntos de Vista', 'BPMN', 'Domain-specific modeling', 'ArchiMate', 'Archi', 'Smart Contracts', 'IIoT systems', 'Positive', 'Model Transformation Testing', 'Data-driven workflows', 'OpenAPI documentation', 'Artificial Intelligence', 'graphical editors', 'Software Variability', 'IoT mobility', 'Natural Language Processing', 'Automated Model Generation', 'Feature Models', 'Arquitectura Empresarial', 'Conceptual modeling', 'ChatGPT', 'IoT simulation', 'Model-driven development', 'DSL', 'Model-Driven Engineering', 'Business Modeling', 'Modeling languages', 'Language models', 'nocode', 'Realization Models', 'Data-intensive applications', 'domain modeling', 'model completion', 'MDE', 'Model-driven engineering (MDE)', 'Web API', 'containers', 'Model-to-text transformation', 'Wastewater treatment plant (WWTP)', 'few-shot learning', 'Docker', 'Model-driven engineering', 'Large Language Models', 'Role-based access control (RBAC)', 'Data science', 'e3value', 'prompt learning', 'Code generation', 'Negative Variability', 'Model Driven Engineering'}
+\end{lstlisting}
+
+\end{frame}
+
+
+\begin{frame}[fragile]
+  \frametitle{Número de autores}
+\begin{lstlisting}[basicstyle=\large\tt]
+len(df['Authors'].str.replace(' y ', ",",regex=False).str.split(',').explode().str.strip().unique())
+>>> 43
+\end{lstlisting}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Metamodelo del track}
+\centering\includegraphics[height=.9\textheight]{img/IsdmTrack}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{PyEcore para construir el modelo}
+\begin{lstlisting}[basicstyle=\large\tt]
+%pip install pyecore pyecoregen
+!pyecoregen -e IsdmTrack.ecore -o . --auto-register-package
+
+import IsdmTrack as isdm
+
+track = isdm.Track(name="ISDM'24")
+for index, row in df.iterrows():
+    paper = isdm.Paper(title=row['Title'],
+                       type=row['Tipo'],
+                       abstract=row['Abstract'],
+                       keywords=row['Keywords'])
+
+    track.papers.append(paper)
+    ...
+\end{lstlisting}
+\end{frame}
+
 
 \input sessionindex
 
