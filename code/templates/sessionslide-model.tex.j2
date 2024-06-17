@@ -1,0 +1,10 @@
+\begin{frame}
+  \frametitle{ {{- session.name -}} }
+{\small (Moderador: {% for chair in session.chairs %} {{ chair.name }} {%endfor%})}
+\begin{itemize}
+{% for paper in session.papers %}
+\item {% for author in paper.authors %} {{ author.name -}} {%endfor%}, %
+      {\bfseries\itshape {{ paper.title -}} } ({{ paper.type }})
+{% endfor %}
+\end{itemize}
+\end{frame}

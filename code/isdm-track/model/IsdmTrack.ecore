@@ -29,13 +29,13 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Participant" eSuperTypes="#//NamedElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="paper" lowerBound="1" upperBound="-1"
-        eType="#//Paper" eOpposite="#//Paper/author"/>
+        eType="#//Paper" eOpposite="#//Paper/authors"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="university" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Paper">
     <eStructuralFeatures xsi:type="ecore:EReference" name="session" eType="#//Session"
         eOpposite="#//Session/papers"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="author" lowerBound="1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="authors" lowerBound="1"
         upperBound="-1" eType="#//Participant" eOpposite="#//Participant/paper"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

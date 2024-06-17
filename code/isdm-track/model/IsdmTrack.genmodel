@@ -35,7 +35,7 @@
     </genClasses>
     <genClasses ecoreClass="IsdmTrack.ecore#//Paper">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference IsdmTrack.ecore#//Paper/session"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference IsdmTrack.ecore#//Paper/author"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference IsdmTrack.ecore#//Paper/authors"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute IsdmTrack.ecore#//Paper/title"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute IsdmTrack.ecore#//Paper/type"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute IsdmTrack.ecore#//Paper/abstract"/>
