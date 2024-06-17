@@ -32,10 +32,10 @@ Universidad de Extremadura &  Universidad de Murcia \\
 
 \section{Introducción y bienvenida al taller}
 
-\begin{frame}
-\frametitle{Bienvenida}
+% \begin{frame}
+% \frametitle{Bienvenida}
 
-\end{frame}
+% \end{frame}
 
 \begin{frame}[fragile]
 \frametitle{Cargando los datos de easychair}
@@ -118,6 +118,38 @@ for session in track.sessions:
   Plantilla {\tt sessionslide-model.tex.j2}:
 \lstinputlisting[language=TeX]{../code/templates/sessionslide-model.tex.j2}
 \end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Incluso, la cabra tira al monte... NoSQL con Neo4j}
+
+\begin{lstlisting}
+def add_papers(tx, papers: list[isdm.Paper]):
+    for p in papers:
+        tx.run(f"""CREATE (p:Paper) SET p.title = "{p.title}", p.type = "{p.type}", ...""")
+
+def add_sessions(tx, sessions: list[isdm.Session]):
+    for s in sessions:
+        tx.run(f"""CREATE (s:Session) SET s.name = "{s.name}", s.start = "{s.start}", s.end = "{s.end}", ...""")
+
+with GraphDatabase.driver(URI, auth=AUTH) as driver:
+    with driver.session() as session:
+        session.execute_write(add_papers, track.papers)
+        session.execute_write(add_sessions, track.sessions)
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Incluso, la cabra tira al monte... NoSQL con Neo4j}
+  \centering\includegraphics[height=.9\textheight]{img/sessions}
+\end{frame}
+
+
+
+\begin{frame}
+  \frametitle{Y todos los artículos}
+\centering\includegraphics[height=.9\textheight]{img/papers}
+\end{frame}
+
 
 \input sessionindex
 
