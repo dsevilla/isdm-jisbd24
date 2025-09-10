@@ -1,5 +1,5 @@
 # -*- Makefile -*-
-TARGETS = isdm24.pdf
+TARGETS = isdm25.pdf
 TARGETS_NOEXT = $(patsubst %.pdf,%,$(TARGETS))
 DEPS_DIR = .deps
 LATEXMK = latexmk -recorder -use-make -deps
