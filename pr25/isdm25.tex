@@ -22,9 +22,22 @@ Universidad de Extremadura &  Universidad de Murcia \\
 \def\insertsectionnumber{\arabic{section}}
 \def\insertsubsectionnumber{\arabic{subsection}}
 
-\pgfdeclareimage[width=\paperwidth]{background}{img/slideMezquita.jpg}
-\usebackgroundtemplate{\tikz\node[inner sep=0,opacity=0.2]{\pgfuseimage{background}};}
+\pgfdeclareimage[width=\paperwidth]{background}{img/slideMezquita169.jpg}
+%\usebackgroundtemplate{\tikz\node[inner sep=0,opacity=0.9]{\pgfuseimage{background}};}
 
+\usebackgroundtemplate{%
+  \begin{tikzpicture}[remember picture,overlay]
+    \node[inner sep=0,anchor=south west] at (current page.south west) {\pgfuseimage{background}};
+    \fill[black,opacity=0.7] (current page.south west) rectangle (current page.north east);
+  \end{tikzpicture}%
+}
+
+\definecolor{accent}{HTML}{1DA1F2} % azul claro; cambia el HEX
+
+% Section/structure color (affects TOC, navigation, etc.)
+\setbeamercolor{structure}{fg=accent}
+
+\setbeamerfont{title}{size=\Huge,series=\bfseries}
 
 \begin{frame}
   \titlepage
